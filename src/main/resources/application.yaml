@@ -20,9 +20,23 @@ spring:
 
         - id: surprise
           uri: https://www.reddit.com/r/languagelearning/
-          
           predicates:
             - Path=/
+
+        - id: shikiri-tasks
+          uri: lb://shikiri-tasks
+          predicates:
+            - Path=/tasks/**
+        
+        - id: shikiri-tool
+          uri: lb://shikiri-tool
+          predicates:
+            - Path=/tools/**
+
+        - id: shikiri-board
+          uri: lb://shikiri-board
+          predicates:
+            - Path=/boards/**
 
 management:
   endpoints:
@@ -44,4 +58,19 @@ api:
       POST /auth/register,
       POST /auth/login,
       ANY /auth/actuator,
-      ANY /accounts/actuator
+      ANY /accounts/actuator,
+      ANY /gateway/actuator,
+      ANY /tasks/actuator,
+      ANY /tools/actuator,
+      ANY /boards/actuator,
+      ANY /auth/swagger**,
+      ANY /accounts/swagger**,
+      ANY /tasks/swagger**,
+      ANY /tools/swagger**,
+      ANY /boards/swagger**,
+      ANY /auth/v3**,
+      ANY /accounts/v3**,
+      ANY /tasks/v3**,
+      ANY /tools/v3**,
+      ANY /boards/v3**
+
