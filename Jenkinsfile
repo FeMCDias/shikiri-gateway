@@ -1,11 +1,6 @@
 pipeline {
     agent any
     stages {
-        stage('Build Gateway') {
-            steps {
-                build job: 'shikiri.gateway', wait: true
-            }
-        }
         stage('Build') { 
             steps {
                 sh 'mvn clean package'
