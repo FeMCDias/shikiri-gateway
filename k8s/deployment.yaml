@@ -1,21 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: gateway-api
+  name: gateway
   labels:
-    app: gateway-api
-spec: 
+    app: gateway
+spec:
   replicas: 1
   selector:
     matchLabels:
-      app: gateway-api
+      app: gateway
   template:
     metadata:
       labels:
-        app: gateway-api
+        app: gateway
     spec:
       containers:
-      - name: gateway-api
-        image: femcdias/shikiri-gateway:latest
-        ports:
-        - containerPort: 8080
+        - name: gateway
+          image: femcdias/gateway:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
