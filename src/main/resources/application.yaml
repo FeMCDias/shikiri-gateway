@@ -74,3 +74,9 @@ api:
       ANY /tools/v3**,
       ANY /boards/v3**
 
+springdoc:
+  swagger-ui:
+    enabled: true
+    url: /v3/api-docs
+  api-docs:
+    enabled: true
